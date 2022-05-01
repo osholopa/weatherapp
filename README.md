@@ -18,8 +18,8 @@
 - Run `npm install`
 
 ### Scripts <a name="frontend-scripts"></a>
-- `npm start` - Starts the project
-- `npm run lint` - Lints the code with ESLint
+- `npm start` - Starts webpack dev server 
+- `npm run lint` - Checks code style with ESLint
 
 ### Environment <a name="frontend-env"></a>
 | Variable | Default value | Description |
@@ -36,8 +36,8 @@
 - Run `npm install`
 
 ### Scripts <a name="backend-scripts"></a>
-- `npm start` - Starts the project
-- `npm run lint` - Lints the code with ESLint
+- `npm start` - Starts listening specified port
+- `npm run lint` - Checks code style with ESLint
 
 ### Environment <a name="backend-env"></a>
 | Variable | Default value | Description |
