@@ -1,5 +1,10 @@
 # Weatherapp
 
+Fetches weather data from [OpenWeather API](https://openweathermap.org/api) by location
+and shows an svg indicating the current weather
+
+## Prerequisites
+ - [OpenWeather API key](https://openweathermap.org/api)
 
 # Table of contents
 1. [Frontend](#frontend)
@@ -13,6 +18,7 @@
 
 
 ## Frontend <a name="frontend"></a>
+*React application*
 
 ### Installation <a name="frontend-install"></a>
 - Run `npm install`
@@ -31,12 +37,14 @@
 
 
 ## Backend <a name="backend"></a>
+*Koa.js API*
 
 ### Installation <a name="backend-install"></a>
 - Run `npm install`
 
 ### Scripts <a name="backend-scripts"></a>
 - `npm start` - Starts listening specified port
+- `npm run dev` - Starts backend in development mode with hot reload
 - `npm run lint` - Checks code style with ESLint
 
 ### Environment <a name="backend-env"></a>
