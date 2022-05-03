@@ -40,7 +40,6 @@ and shows an svg indicating the current weather
 
 
 # Backend (Koa.js / Node API) <a name="backend"></a>
-Koa.js API
 
 ### Available scripts <a name="backend-scripts"></a>
 - `npm start` - Starts listening specified port
