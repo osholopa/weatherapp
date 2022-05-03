@@ -1,0 +1,9 @@
+FROM node:16.15-alpine
+WORKDIR /usr/src/app
+
+# Copy package.json, lockfile && Install dependencies in the same layer
+COPY package* ./
+RUN npm install
+
+# Copy rest of source code
+COPY . ./

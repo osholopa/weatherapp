@@ -5,25 +5,29 @@ and shows an svg indicating the current weather
 
 ## Prerequisites
  - [OpenWeather API key](https://openweathermap.org/api)
+ - [Docker](https://www.docker.com/get-started/) installed
 
 # Table of contents
-1. [Frontend](#frontend)
-    1. [Installation](#frontend-install)
-    2. [Scripts](#frontend-scripts)
-    3. [Environment](#frontend-env)
-2. [Backend](#backend)
-    1. [Installation](#backend-install)
-    2. [Scripts](#backend-scripts)
-    3. [Environment](#backend-env)
+1. [Local development environment setup](#setup)
+2. [Frontend](#frontend)
+    1. [Available scripts](#frontend-scripts)
+    2. [Environment](#frontend-env)
+3. [Backend](#backend)
+    1. [Available scripts](#backend-scripts)
+    2. [Environment](#backend-env)
 
+# Local development environment setup <a name="setup"></a>
+1. Clone the repository
+2. Create .env-file to the root directory and set your API-key to APPID - environment variable :
+    ```
+    APPID=<your-api-key-here>
+    ```
+3. Run ` docker-compose -f docker-compose.dev.yml up --build`
+4. Open [http://localhost:8000/](http://localhost:8000/) in the browser
 
-## Frontend <a name="frontend"></a>
-*React application*
+# Frontend (React) <a name="frontend"></a>
 
-### Installation <a name="frontend-install"></a>
-- Run `npm install`
-
-### Scripts <a name="frontend-scripts"></a>
+### Available scripts <a name="frontend-scripts"></a>
 - `npm start` - Starts webpack dev server 
 - `npm run lint` - Checks code style with ESLint
 
@@ -35,14 +39,10 @@ and shows an svg indicating the current weather
 |POST|8000|Webpack devserver port|
 
 
+# Backend (Koa.js / Node API) <a name="backend"></a>
+Koa.js API
 
-## Backend <a name="backend"></a>
-*Koa.js API*
-
-### Installation <a name="backend-install"></a>
-- Run `npm install`
-
-### Scripts <a name="backend-scripts"></a>
+### Available scripts <a name="backend-scripts"></a>
 - `npm start` - Starts listening specified port
 - `npm run dev` - Starts backend in development mode with hot reload
 - `npm run lint` - Checks code style with ESLint

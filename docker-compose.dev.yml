@@ -1,0 +1,39 @@
+version: "3.1"
+
+services:
+
+  weatherapp_frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile.dev
+    command: npm start
+    image: weatherapp_frontend
+    environment:
+      ENDPOINT: "http://localhost:9000/api"
+      CHOKIDAR_USEPOLLING: "true" # Fixes hot reload on Windows when using WSL
+    ports:
+      - 8000:8000
+    volumes:
+      - ./frontend/:/usr/src/app
+      - node_modules_front:/usr/src/app/node_modules
+    depends_on:
+      - weatherapp_backend
+
+  weatherapp_backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile.dev
+    command: npm run dev
+    image: weatherapp_backend
+    environment:
+      APPID: "${APPID}"
+      CHOKIDAR_USEPOLLING: "true" # Fixes hot reload on Windows when using WSL
+    ports:
+      - 9000:9000
+    volumes:
+      - ./backend/:/usr/src/app
+      - node_modules_back:/usr/src/app/node_modules
+
+volumes:
+  node_modules_front:
+  node_modules_back:
