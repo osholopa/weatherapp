@@ -28,7 +28,8 @@ and shows an svg indicating the current weather
 # Frontend (React) <a name="frontend"></a>
 
 ### Available scripts <a name="frontend-scripts"></a>
-- `npm start` - Starts webpack dev server 
+- `npm start` - Starts webpack dev server
+- `npm run build` - Bundles JavaScript code and other static assets for production 
 - `npm run lint` - Checks code style with ESLint
 
 ### Environment <a name="frontend-env"></a>
