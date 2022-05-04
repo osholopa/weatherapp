@@ -9,9 +9,9 @@
   "author": "Marko Klemetti <marko.klemetti@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",
-    "build": "node_modules/.bin/webpack --config webpack.prod.js",
-    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx ."
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint --ext .js --ext .jsx ."
   },
   "dependencies": {
     "react": "^16.13.1",
@@ -23,6 +23,7 @@
     "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@webpack-cli/serve": "^1.6.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^4.0.0",
@@ -37,7 +38,7 @@
     "node-sass": "^7.0.1",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
-    "webpack": "^5.1.0",
+    "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
   }
