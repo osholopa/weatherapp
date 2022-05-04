@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const GLOBALS = {
@@ -11,7 +10,7 @@ const GLOBALS = {
 module.exports = {
   mode: 'development',
   cache: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
     main: ['@babel/polyfill', path.join(__dirname, 'src/index.jsx')],
   },
@@ -23,10 +22,12 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: 'src/public',
+    static: 'src/public',
     historyApiFallback: true,
-    disableHostCheck: true,
     host: process.env.HOST || '0.0.0.0',
+    hot: true,
+    open: true,
+    compress: true,
     port: process.env.PORT || 8000,
   },
   output: {
@@ -36,18 +37,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            '@babel/preset-react',
-            ['@babel/env', { targets: { browsers: ['last 2 versions'] }, modules: false }],
-          ],
-          plugins: [
-            '@babel/plugin-proposal-class-properties',
-          ],
-        },
+        test: /\.js$|\.jsx$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      // Images
+      {
+        test: /\.(?:ico|gif|png|svg|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+       // CSS and Sass
+       {
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -58,7 +60,6 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new TransferWebpackPlugin([{ from: 'src/public' }], '.'),
     new webpack.DefinePlugin(GLOBALS),
   ],
 };
