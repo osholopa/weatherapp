@@ -23,15 +23,11 @@ resource "google_compute_firewall" "default" {
   network = "default"
 
   allow {
-    protocol = "icmp"
-  }
-
-  allow {
     protocol = "tcp"
-    ports    = ["80", "22"]
+    ports    = ["80", "443"]
   }
   source_ranges = ["0.0.0.0/0"]
-  source_tags   = ["web"]
+  source_tags   = ["web", "http-server"]
 }
 
 

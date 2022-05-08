@@ -1,7 +1,9 @@
 FROM node:16.15-alpine
 WORKDIR /usr/src/app
 
-ENV ENDPOINT=http://localhost/api
+ARG request_url=localhost
+
+ENV ENDPOINT=$request_url/api
 
 # Expose port where content is served
 EXPOSE 5000

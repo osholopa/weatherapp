@@ -1,0 +1,48 @@
+---
+- hosts: weatherapp
+  become: true
+  environment:
+    APPID: '{{ lookup("env", "APPID") }}'
+    CERTBOT_DATA_PATH: '{{ lookup("env", "CERTBOT_DATA_PATH") }}'
+    DOMAIN: '{{ lookup("env", "DOMAIN") }}'
+    USER_EMAIL: '{{ lookup("env", "USER_EMAIL") }}'
+  tasks:
+
+    - name: Create directory for weatherapp
+      file:
+        path: "/src/weatherapp"
+        state: directory
+        recurse: yes
+
+    - name: Copy production nginx configuration with playbook
+      copy:
+        src: ../nginx.conf
+        dest: /src/weatherapp
+        mode: 0644
+
+    - name: Copy production docker compose
+      copy:
+        src: ../docker-compose.yml
+        dest: /src/weatherapp
+        mode: 0644
+
+    - name: Transfer script with right env variables
+      copy: 
+        src: ../sh/env.sh 
+        dest: /src/weatherapp/env.sh 
+        mode: 0777
+
+    - name: Transfer .env file for docker compose
+      copy: 
+        src: ../.env 
+        dest: /src/weatherapp/.env
+        mode: 0777
+
+    - name: Transfer init script
+      copy: 
+        src: ../sh/init-weatherapp.sh 
+        dest: /src/weatherapp/init-weatherapp.sh 
+        mode: 0777
+
+    - name: Source env variables && run init script
+      shell: chdir=/src/weatherapp source ./env.sh && ./init-weatherapp.sh executable=/bin/bash

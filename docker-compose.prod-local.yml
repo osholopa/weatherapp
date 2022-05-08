@@ -3,8 +3,9 @@ version: "3.1"
 services:
   reverse-proxy:
     image: nginx
+    restart: always
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-local.conf:/etc/nginx/nginx.conf
     networks:
       - proxy-network
     ports:
@@ -17,7 +18,10 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    image: weatherapp-frontend
+      args: 
+        request_url: "${REQUEST_URL}"
+    image: osholopa/weatherapp-frontend
+    restart: always
     container_name: weatherapp-frontend
     ports:
       - 5000:5000
@@ -30,7 +34,8 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-    image: weatherapp-backend
+    image: osholopa/weatherapp-backend
+    restart: always
     container_name: weatherapp-backend
     environment:
       APPID: "${APPID}"

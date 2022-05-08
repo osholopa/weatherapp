@@ -47,3 +47,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+ansible/playbooks/env.sh
+
+trash/
+env.sh
