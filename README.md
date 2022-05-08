@@ -108,10 +108,7 @@ ssh_username     = "<ssh username>"
 
 ## Ansible
 - Edited /etc/ansible/hosts file to include:
-1. Name of target host
-2. Managed node ip address
-3. Path to ssh private key
-4. ssh username
+
 ```
 weatherapp ansible_host=<host ip> ansible_ssh_private_key_file=<path to private key> ansible_user=<ssh username>
 ```
@@ -119,7 +116,7 @@ weatherapp ansible_host=<host ip> ansible_ssh_private_key_file=<path to private 
 
 ### Playbooks
 
-[main.yaml](./ansible/playbooks/main.yaml)
+[main.yaml](./ansible/main.yaml)
 - Installs Docker
   - Installs:
     - Aptitude
