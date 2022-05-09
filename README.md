@@ -11,15 +11,16 @@ and shows an svg indicating the current weather
 
 # Table of contents
 1. [Local development environment setup](#setup)
-2. [Frontend](#frontend)
+2. [Building and testing production containers locally](#local-prod-test)
+3. [Frontend](#frontend)
     1. [Available scripts](#frontend-scripts)
     2. [Environment](#frontend-env)
-3. [Backend](#backend)
+4. [Backend](#backend)
     1. [Available scripts](#backend-scripts)
     2. [Environment](#backend-env)
-4. [Setting up infrastructure and configuration](#infra-setup)
-5. [Deployment prerequisites](#depl-prereq)
-6. [Deployment steps](#depl-steps)
+5. [Setting up infrastructure and configuration](#infra-setup)
+6. [Deployment prerequisites](#depl-prereq)
+7. [Deployment steps](#depl-steps)
 
 # Local development environment setup <a name="setup"></a>
 1. Clone the repository and move to project root
