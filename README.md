@@ -47,7 +47,7 @@ and shows an svg indicating the current weather
 |--|--|--|
 |ENDPOINT|http://0.0.0.0:9000/api|Backend API URL|
 |HOST|"0.0.0.0"|Webpack devserver host address|
-|POST|8000|Webpack devserver port|
+|PORT|8000|Webpack devserver port|
 
 
 # Backend (Koa.js / Node API) <a name="backend"></a>
